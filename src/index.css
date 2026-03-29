@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;800;900&display=swap');
+
+:root {
+  --bg-blue: #0A1128;
+  --bg-red: #D90429;
+  --text-white: #fefefe;
+  --text-dim: #a0a0ab;
+  --glass-bg: rgba(10, 17, 40, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  
+  /* Will be updated by JS from 0 to 1 */
+  --scroll-progress: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dynamic background mixing red and blue */
+.app-container {
+  position: relative;
+  width: 100%;
+  background: black;
+  /* Cinematic blend overlay */
+}
+
+/* Mix blend mode overlay to tint the page */
+.cinematic-tint {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  /* Interpolate from red at top to blue at bottom using scroll progress */
+  background: linear-gradient(
+    to bottom right,
+    rgba(217, 4, 41, max(0, 0.8 - var(--scroll-progress))), 
+    rgba(10, 17, 40, max(0, var(--scroll-progress) * 1.5))
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+/* Canvas Sequence */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; 
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.sequence-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  filter: contrast(1.1) brightness(0.9);
+}
+
+/* Overlay UI */
+.overlay-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.spacer {
+  min-height: 30vh; /* Reduced to make text denser and scrub animation faster */
+}
+
+/* Hero */
+.hero {
+  justify-content: center;
+}
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+.hero-title {
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+/* Global Glass panel */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 4rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Titles and text */
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40%;
+  height: 4px;
+  background: var(--bg-red);
+}
+.section-text {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.8;
+  color: var(--text-dim);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.skill-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-weight: 300;
+  transition: all 0.3s;
+  cursor: default;
+}
+.skill-badge:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-5px);
+  border-color: var(--bg-red);
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.project-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: #111;
+  cursor: pointer;
+}
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.6;
+}
+.project-card:hover img {
+  transform: scale(1.05);
+  opacity: 0.3;
+}
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2.5rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.project-card:hover .project-info {
+  transform: translateY(0);
+  opacity: 1;
+}
+.project-info h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.project-info p {
+  color: var(--text-white);
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+/* Experience */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+  border-left: 2px solid rgba(255,255,255,0.1);
+  padding-left: 2.5rem;
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.9rem;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--bg-red);
+  border: 4px solid var(--bg-blue);
+}
+.timeline-item h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.timeline-item span {
+  font-size: 0.9rem;
+  color: var(--bg-red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: block;
+  margin: 0.5rem 0;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1.2rem;
+  border-radius: 12px;
+  color: white;
+  font-family: 'Outfit';
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: var(--bg-red);
+  background: rgba(255,255,255,0.08);
+}
+.contact-form button {
+  background: var(--text-white);
+  color: var(--bg-blue);
+  border: none;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.contact-form button:hover {
+  background: var(--bg-red);
+  color: white;
+}
+
+/* Social */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+.social-links a {
+  color: var(--text-dim);
+  transition: all 0.3s;
+}
+.social-links a:hover {
+  color: white;
+  transform: scale(1.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+  .spacer {
+    min-height: 15vh;
+  }
+  .hero-title {
+    font-size: clamp(3rem, 15vw, 6rem);
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .glass-panel {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .skill-badge {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+  .project-card {
+    aspect-ratio: 1/1; /* Better for mobile viewing */
+  }
+  .project-info {
+    padding: 1.5rem;
+    /* Always show info slightly on mobile or keep hover */
+    opacity: 1; 
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  }
+  .project-card img {
+    opacity: 0.5; /* Always dimmed enough to read text on mobile */
+  }
+  .project-info h3 {
+    font-size: 1.8rem;
+  }
+  .timeline {
+    padding-left: 1.5rem;
+    gap: 1.5rem;
+  }
+  .timeline-item::before {
+    left: -1.9rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-width: 3px;
+  }
+  .timeline-item h3 {
+    font-size: 1.25rem;
+  }
+  .social-links {
+    gap: 1.5rem;
+  }
+}
