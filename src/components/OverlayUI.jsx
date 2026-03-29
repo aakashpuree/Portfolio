@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Settings, Code, Component, Layout, Briefcase, Camera, Mail } from 'lucide-react';
+import habittaImg from '../assets/habitta-img.png';
+import dateFinderImg from '../assets/date-finder.png';
 
 const OverlayUI = () => {
   const sectionsRef = useRef([]);
@@ -162,14 +164,14 @@ const OverlayUI = () => {
             <h2 className="section-title">Best Projects</h2>
             <div className="projects-grid">
               <div className="project-card">
-                <img src="src/assets/habitta-img.png" alt="Project 1" />
+                <img src={habittaImg} alt="Project 1" />
                 <div className="project-info">
                   <h3>Habbit Tracker</h3>
                   <p>A website used to track own habbit and progress.</p>
                 </div>
               </div>
               <div className="project-card">
-                <img src="src/assets/date-finder.png" alt="Project 2" />
+                <img src={dateFinderImg} alt="Project 2" />
                 <div className="project-info">
                   <h3>Date Finder</h3>
                   <p>A website used to find the date of birth  of any day and can buy it.</p>
