@@ -1,16 +1,37 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website. It shows my projects, skills, and contact information.
 
-Currently, two official plugins are available:
+Live site (result of portfolio): https://aakashpuree-portfolio.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
+- Simple and clean portfolio to show my work.
+- Built with react and vite.
 
-## React Compiler
+## Demo
+Open the website to see the portfolio:
+https://aakashpuree-portfolio.vercel.app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
+- JavaScript (≈ 63.8%)
+- CSS (≈ 35%)
+- HTML (≈ 1.2%)
 
-## Expanding the ESLint configuration
+## How to run locally
+1. Clone the repository:
+   git clone https://github.com/Aakashpuri786/Portfolio.git
+2. Go into the project folder:
+   cd Portfolio
+3. If the project uses a package manager, install dependencies:
+   npm install
+4. Start the project (if applicable):
+   npm run dev
+5. Open http://localhost:5173 (or the port your project uses) in your browser.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If your site is static (no server), you can open `index.html` in your browser.
+
+## How to contact me
+- GitHub: https://github.com/Aakashpuri786
+
+## License
+You can add a license file if you want to share this project openly.
