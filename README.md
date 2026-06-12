@@ -13,7 +13,7 @@ Open the website to see the portfolio:
 https://aakashpuree-portfolio.vercel.app
 
 ## Technologies
-- JavaScript (≈ 63.8%)z
+- JavaScript (≈ 63.8%)
 - CSS (≈ 35%)
 - HTML (≈ 1.2%)
 
