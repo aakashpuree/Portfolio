@@ -14,7 +14,7 @@ https://aakashpuree-portfolio.vercel.app
 
 ## Technologies
 - JavaScript (≈ 63.8%) 
-- CSS (≈ 35%)z
+- CSS (≈ 35%)
 - HTML (≈ 1.2%)
 
 ## How to run locally
