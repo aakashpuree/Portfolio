@@ -2,7 +2,7 @@
 
 This is my personal portfolio website. It shows my projects, skills, and contact information.
 
-Live site (result of portfolio): https://aakashpuree-portfolio.vercel.app
+Live site (result of portfolio): https://aakashpuree.vercel.app
 
 ## About
 - Simple and clean portfolio to show my work.
@@ -10,7 +10,7 @@ Live site (result of portfolio): https://aakashpuree-portfolio.vercel.app
 
 ## Demo
 Open the website to see the portfolio:
-https://aakashpuree-portfolio.vercel.app
+https://aakashpuree.vercel.app
 
 ## Technologies
 - JavaScript (≈ 63.8%)
