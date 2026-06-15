@@ -7,6 +7,8 @@ import dateFinderImg from '../assets/date-finder.png';
 const OverlayUI = () => {
   const sectionsRef = useRef([]);
   const heroRef = useRef(null);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -105,9 +107,63 @@ const OverlayUI = () => {
       <div className="cinematic-tint"></div>
 
       <div className="overlay-container">
+        {/* NAVBAR */}
+        <header className="navbar">
+          <div className="navbar-inner">
+            <button
+              className="navbar-toggle"
+              type="button"
+              aria-label="Open navigation menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <p>&#9776;</p>
+            </button>
+
+            <nav className={`navbar-menu ${menuOpen ? 'open' : ''}`} aria-label="Primary">
+              <a className="nav-link" href="#home" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setMenuOpen(false);
+              }}>Home</a>
+              <a className="nav-link" href="#about" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setMenuOpen(false);
+              }}>About</a>
+              <a className="nav-link" href="#projects" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setMenuOpen(false);
+              }}>Projects</a>
+              <a className="nav-link" href="#resume" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#resume')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setMenuOpen(false);
+              }}>Resume</a>
+              <a className="nav-link" href="#blogs" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#blogs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setMenuOpen(false);
+              }}>Blogs</a>
+              <a className="nav-link" href="#contact" onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setMenuOpen(false);
+              }}>Contact</a>
+
+              {/* Optional extra quick links */}
+              <a className="nav-link nav-link--icon" href="https://github.com/aakashpuree" target="_blank" rel="noreferrer" aria-label="GitHub">
+                GitHub↗
+              </a>
+            </nav>
+          </div>
+        </header>
+
         {/* HERO */}
-        <section className="section hero">
+        <section className="section hero" id="home">
           <div className="hero-content" ref={heroRef}>
+
             <h1 className="hero-title" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 0 }}>
               <div style={{ display: 'flex' }}>
                 {"AAKASH".split('').map((char, i) => <span key={`first-${i}`} className="hero-char" style={{ display: 'inline-block' }}>{char}</span>)}
@@ -123,9 +179,10 @@ const OverlayUI = () => {
         <section className="section spacer"></section>
 
         {/* ABOUT */}
-        <section className="section">
+        <section className="section" id="about">
           <div className="glass-panel" ref={addToRefs}>
             <h2 className="section-title">My Self</h2>
+
             <p className="section-text">
               I'm Aakash Puri, a creative developer who thrives in the quiet of the night.
               When the world sleeps, I build visually stunning, highly interactive digital
@@ -145,6 +202,7 @@ const OverlayUI = () => {
         <section className="section">
           <div className="glass-panel" ref={addToRefs}>
             <h2 className="section-title">My Toolkit</h2>
+
             <p className="section-text">Equipped with cutting-edge tools to dominate the digital landscape.</p>
             <div className="skills-grid">
               <div className="skill-badge"><Code size={20} /> React Ecosystem</div>
@@ -159,9 +217,10 @@ const OverlayUI = () => {
         <section className="section spacer"></section>
 
         {/* PROJECTS */}
-        <section className="section">
+        <section className="section" id="projects">
           <div className="glass-panel" ref={addToRefs} style={{ maxWidth: '1100px' }}>
             <h2 className="section-title">Best Projects</h2>
+
             <div className="projects-grid">
               <div className="project-card">
                 <img src={habittaImg} alt="Project 1" />
@@ -183,10 +242,45 @@ const OverlayUI = () => {
 
         <section className="section spacer"></section>
 
+        {/* BLOGS */}
+        <section className="section" id="blogs">
+          <div className="glass-panel" ref={addToRefs} style={{ maxWidth: '1100px' }}>
+            <h2 className="section-title">Blogs</h2>
+            <p className="section-text">Articles, notes, and experiments on building modern web experiences.</p>
+
+            <div className="blogs-grid">
+              <a className="blog-card" href="#" onClick={(e) => e.preventDefault()}>
+                <div className="blog-card__title">Designing Glass UIs</div>
+                <div className="blog-card__meta">3 min read • UI/UX</div>
+                <div className="blog-card__cta">Read ↗</div>
+              </a>
+              <a className="blog-card" href="#" onClick={(e) => e.preventDefault()}>
+                <div className="blog-card__title">Smooth Scrolling with Lenis</div>
+                <div className="blog-card__meta">4 min read • Frontend</div>
+                <div className="blog-card__cta">Read ↗</div>
+              </a>
+              <a className="blog-card" href="#" onClick={(e) => e.preventDefault()}>
+                <div className="blog-card__title">Performance for Interactive Pages</div>
+                <div className="blog-card__meta">5 min read • Engineering</div>
+                <div className="blog-card__cta">Read ↗</div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section spacer"></section>
+
         {/* EXPERIENCE */}
-        <section className="section">
+        <section className="section" id="resume">
+
           <div className="glass-panel" ref={addToRefs}>
-            <h2 className="section-title">Timeline</h2>
+            <h2 className="section-title">Resume</h2>
+            <p className="section-text" style={{ marginBottom: '2rem' }}>
+              Quick snapshot of experience and roles.
+            </p>
+            <h3 style={{ fontSize: '1.8rem', fontWeight: 700, marginBottom: '1rem' }}>
+              Timeline
+            </h3>
             <div className="timeline">
               <div className="timeline-item">
                 <h3>Senior Frontend Architect</h3>
@@ -210,8 +304,9 @@ const OverlayUI = () => {
         <section className="section spacer"></section>
 
         {/* CONTACT */}
-        <section className="section" style={{ minHeight: '80vh' }}>
+        <section className="section" id="contact" style={{ minHeight: '80vh' }}>
           <div className="glass-panel" ref={addToRefs}>
+
             <h2 className="section-title">Contact Me</h2>
             <p className="section-text">Impressed? Let's build something extraordinary together.</p>
 
@@ -223,7 +318,7 @@ const OverlayUI = () => {
             </form>
 
             <div className="social-links">
-              <a href="https://github.com/Aakashpuri786" target="_blank" rel="noreferrer"><Code size={30} /></a>
+              <a href="https://github.com/aakashpuree" target="_blank" rel="noreferrer"><Code size={30} /></a>
               <a href="https://np.linkedin.com/in/aakash-puri-295053316" target="_blank" rel="noreferrer"><Briefcase size={30} /></a>
               <a href="https://www.instagram.com/aakashpuree/" aria-label="Instagram"><Camera size={30} /></a>
               <a href="https://wa.me/9748848620" aria-label="WhatsApp"><Mail size={30} /></a>
