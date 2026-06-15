@@ -7,7 +7,8 @@
   --text-dim: #a0a0ab;
   --glass-bg: rgba(10, 17, 40, 0.4);
   --glass-border: rgba(255, 255, 255, 0.08);
-  
+  --font-heading: 'Anthropic', sans-serif;
+  --font-body: 'Anthropic', serif;
   /* Will be updated by JS from 0 to 1 */
   --scroll-progress: 0;
 }
@@ -19,7 +20,6 @@
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
   color: var(--text-white);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
