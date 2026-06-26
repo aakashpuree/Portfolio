@@ -1,18 +1,11 @@
-# TODO - Navbar + Sections
+# TODO
 
-- [x] Update `src/components/OverlayUI.jsx`:
-  - [x] Add fixed glass navbar (top-right on desktop)
-  - [x] Make navbar responsive (hamburger menu on mobile)
-  - [x] Add smooth scrolling links (Home/About/Projects/Resume/Blogs/Contact)
-  - [x] Add missing section IDs and create “Resume” and “Blogs” sections
-- [x] Update `src/index.css`:
-  - [x] Add navbar styling (transparent glass + blur)
-  - [x] Add hover effects + active/underline sweep
-  - [x] Add responsive breakpoints for mobile
-- [x] Verify build/dev: ensure links scroll correctly and layout doesn’t overlap hero text
-
-
-
-
-
+- [ ] Update `index.html` with SEO meta tags and Google verification:
+  - [ ] Add `google-site-verification` meta tag
+  - [ ] Add professional title/description/keywords
+  - [ ] Add canonical + OpenGraph + Twitter card tags
+  - [ ] Add JSON-LD structured data for Person (Aakash Puri / aakashpuree)
+  - [ ] Add og:image/twitter:image (use existing public asset)
+- [ ] Run `npm run build` and confirm no errors.
+- [ ] Validate meta tags in browser devtools (view-source).
 
