@@ -2,7 +2,6 @@
 
 > A modern, immersive portfolio website showcasing visually stunning interactive experiences built with React, Vite, and advanced animations. Designed to captivate and inspire.
 
-![Portfolio Preview](https://aakashpuree.vercel.app/assets/habitta-img.png)
 
 **Live Demo:** [aakashpuree.vercel.app](https://aakashpuree.vercel.app)
 
