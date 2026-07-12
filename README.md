@@ -212,7 +212,7 @@ lenis.on('scroll', ({ progress }) => {
 **Email**: Direct via Web3Forms integration  
 **Social Media**:
 - 🐙 [GitHub](https://github.com/aakashpuree)
-- 💼 [LinkedIn](https://np.linkedin.com/in/aakash-puri-295053316)
+- 💼 [LinkedIn](https://np.linkedin.com/in/aakashpuree)
 - 📸 [Instagram](https://www.instagram.com/aakashpuree/)
 - 💬 [WhatsApp](https://wa.me/9748848620)
 
