@@ -9,3 +9,4 @@
 - [ ] Run `npm run build` and confirm no errors.
 - [ ] Validate meta tags in browser devtools (view-source).
 
+- make it professional and feels nice as the developer 
