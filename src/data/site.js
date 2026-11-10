@@ -1,5 +1,8 @@
 import habittaImg from '../assets/habitta-img.png';
 import dateFinderImg from '../assets/date-finder.png';
+import himaliWeatherImg from '../assets/himali-weather.png';
+import swasthaSewaImg from '../assets/swastha-sewa.png';
+import comEngNotesImg from '../assets/com-eng-notes.png';
 
 export const site = {
   name: 'Aakash Puri',
@@ -189,6 +192,9 @@ export const featuredProjects = [
       'A weather platform covering all 77 districts of Nepal, with live conditions, 7-day forecasts and an interactive district map.',
     stack: ['TypeScript', 'Weather API', 'Maps'],
     live: 'https://himali-weather.vercel.app',
+    image: himaliWeatherImg,
+    imageWidth: 1080,
+    imageHeight: 640,
     icon: 'cloud',
   },
   {
@@ -199,6 +205,9 @@ export const featuredProjects = [
       'A health-services platform for humans, animals and plants — making everyday health information simple to reach.',
     stack: ['JavaScript', 'HTML', 'CSS'],
     live: 'https://swastha-sewa.vercel.app/',
+    image: swasthaSewaImg,
+    imageWidth: 869,
+    imageHeight: 610,
     icon: 'heart',
   },
   {
@@ -209,6 +218,9 @@ export const featuredProjects = [
       'A modern study platform for NEB computer engineering students to browse, preview and download class notes.',
     stack: ['Vue', 'Vite', 'Notes'],
     live: 'https://com-eng-notes.vercel.app',
+    image: comEngNotesImg,
+    imageWidth: 1076,
+    imageHeight: 637,
     icon: 'book',
   },
   {
