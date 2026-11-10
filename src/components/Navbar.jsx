@@ -71,11 +71,12 @@ export default function Navbar() {
           </a>
 
           <nav className="nav-links" aria-label="Primary">
-            {navigation.slice(0, 5).map((item) => (
+            {navigation.filter((item) => item.id !== 'contact').map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 className={`nav-link ${active === item.id ? 'is-active' : ''}`}
+                aria-current={active === item.id ? 'page' : undefined}
                 onClick={(event) => go(event, item.id)}
               >
                 {item.label}
@@ -134,7 +135,7 @@ export default function Navbar() {
                 key={social.id}
                 href={social.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="me noreferrer"
                 aria-label={social.label}
                 tabIndex={menuOpen ? 0 : -1}
               >

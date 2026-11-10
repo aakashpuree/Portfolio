@@ -10,7 +10,8 @@ export const site = {
   location: 'Nepal',
   timeZone: 'Asia/Kathmandu',
   availability: 'Open to opportunities',
-  bio: 'I design and build fast, expressive products for the web — from full-stack platforms used across Nepal to interfaces that feel alive.',
+  bio: 'Full-stack developer from Nepal building fast, expressive products for the web — from platforms used across the country to interfaces that feel alive.',
+  intro: 'Aakash Puri — known online as aakashpuree — turns ideas into fast, thoughtful digital products. Part engineer, part designer, entirely obsessed with the details that make software feel effortless.',
   philosophy: 'Just not going with the flow.',
   github: 'https://github.com/aakashpuree',
   repoUrl: 'https://github.com/aakashpuree/Portfolio',
@@ -49,6 +50,7 @@ export const navigation = [
   { id: 'github', label: 'GitHub' },
   { id: 'journey', label: 'Journey' },
   { id: 'contact', label: 'Contact' },
+  { id: 'faq', label: 'FAQ' },
 ];
 
 export const facts = [
@@ -56,6 +58,78 @@ export const facts = [
   { label: 'Focus', value: 'Full-stack & interaction design' },
   { label: 'Core stack', value: 'React, Vue, TypeScript, Python' },
   { label: 'Status', value: 'Available for select projects' },
+  { label: 'Known online as', value: 'aakashpuree' },
+  { label: 'Open source', value: '20+ public repositories' },
+];
+
+export const highlights = [
+  {
+    icon: 'code',
+    title: 'Full-stack, end to end',
+    description:
+      'Product thinking, interface craft and the systems behind them — one owner from the first sketch to production.',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Performance is a feature',
+    description:
+      'Fast first paint, accessible interactions and details that hold up on real devices, not just fast laptops.',
+  },
+  {
+    icon: 'server',
+    title: 'Built in public',
+    description:
+      '20+ repositories, live products and open-source experiments — proof over promises, shared as it ships.',
+  },
+];
+
+export const nameVariations = [
+  'Aakash Puri',
+  'aakashpuree',
+  'Aakash Puree',
+  'Akash Puri',
+  'Aakashpuri',
+  'Akash Puree',
+  'Aaksh Puri',
+  'Aakash Pur',
+];
+
+export const faqs = [
+  {
+    question: 'Who is Aakash Puri?',
+    answer:
+      'Aakash Puri is a full-stack developer and creative engineer from Nepal, known online as aakashpuree. He designs and builds fast, expressive web products using React, Vue, TypeScript, Python and Node.js.',
+  },
+  {
+    question: 'Is Aakash Puri the same person as aakashpuree?',
+    answer:
+      "Yes. aakashpuree is Aakash Puri's online handle across GitHub, LinkedIn and Instagram. Aakash Puri is the correct spelling of his name; Aakash Puree, Akash Puri and Aakashpuri are common spelling variations that refer to the same developer.",
+  },
+  {
+    question: 'What does Aakash Puri build?',
+    answer:
+      'Aakash Puri builds full-stack web products and interactive interfaces, including a 77-district weather platform for Nepal, a client-side search engine for 326+ Nepali banknote records, a health-services directory, a habit tracker, and an Apache-2.0 open-source machine-learning pipeline for Nepali banknotes.',
+  },
+  {
+    question: 'Where is Aakash Puri based?',
+    answer:
+      'Aakash Puri is based in Nepal and works in Nepal Time (UTC+5:45). He collaborates remotely with teams and clients worldwide.',
+  },
+  {
+    question: 'Is Aakash Puri available for freelance or full-time work?',
+    answer:
+      'Yes. Aakash Puri is open to select freelance projects and full-time full-stack or front-end engineering roles. The fastest way to reach him is through the contact form on this site, WhatsApp, or LinkedIn.',
+  },
+  {
+    question: 'How can I contact Aakash Puri?',
+    answer:
+      'You can contact Aakash Puri through the contact form at aakashpuree.vercel.app, by WhatsApp at +977 9748848620, by email through the site form, or on LinkedIn at linkedin.com/in/aakashpuree.',
+  },
+  {
+    question: 'What technologies does Aakash Puri work with?',
+    answer:
+      'Aakash Puri works primarily with React, Vue, TypeScript, JavaScript, Python and Node.js, alongside HTML5, CSS3, Tailwind CSS, GSAP, SQL, REST APIs, Vite, Git, Figma and Vercel.',
+  },
 ];
 
 export const skillGroups = [
@@ -89,6 +163,8 @@ export const featuredProjects = [
     stack: ['JavaScript', 'Vite', 'CSS'],
     live: 'https://aakashpuree.github.io/Habitta-app/',
     image: habittaImg,
+    imageWidth: 1076,
+    imageHeight: 637,
     icon: 'sparkles',
     featured: true,
   },
@@ -101,6 +177,8 @@ export const featuredProjects = [
     stack: ['JavaScript', 'SQL', 'Client-side'],
     live: 'https://aakashpuree.github.io/Date-Finder/',
     image: dateFinderImg,
+    imageWidth: 869,
+    imageHeight: 610,
     icon: 'scan',
   },
   {

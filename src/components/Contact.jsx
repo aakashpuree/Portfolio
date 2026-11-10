@@ -81,8 +81,8 @@ export default function Contact() {
               </p>
               <p className="contact-copy">
                 I&apos;m available for select freelance projects and full-time
-                opportunities. The fastest way to reach me is WhatsApp or the form —
-                I read and reply to everything.
+                opportunities — remote or in Nepal. The fastest way to reach me is
+                WhatsApp or the form. I read and reply to everything.
               </p>
             </Reveal>
 
@@ -93,7 +93,7 @@ export default function Contact() {
                   className="contact-link"
                   href={social.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="me noreferrer"
                 >
                   <span className="contact-link-icon" aria-hidden="true">
                     <BrandIcon name={social.id} size={18} />

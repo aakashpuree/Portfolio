@@ -105,7 +105,7 @@ export default function Hero({ github, introReady }) {
                 key={social.id}
                 href={social.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="me noreferrer"
                 aria-label={`${social.label} — ${social.handle}`}
               >
                 <BrandIcon name={social.id} size={17} />

@@ -11,6 +11,7 @@ import Projects from './components/Projects';
 import OpenSource from './components/OpenSource';
 import Journey from './components/Journey';
 import Contact from './components/Contact';
+import Faq from './components/Faq';
 import Footer from './components/Footer';
 import useGitHub from './hooks/useGitHub';
 import { registerLenis, setScrollLock } from './lib/scroll';
@@ -116,6 +117,7 @@ function App() {
             <OpenSource github={github} />
             <Journey />
             <Contact />
+            <Faq />
           </div>
         </main>
 

@@ -56,9 +56,11 @@ function ProjectCard({ project, repo, index }) {
         {project.image ? (
           <img
             src={project.image}
-            alt={`${project.title} interface preview`}
+            alt={`${project.title} interface preview by Aakash Puri`}
             loading="lazy"
             decoding="async"
+            width={project.imageWidth}
+            height={project.imageHeight}
           />
         ) : (
           <ProjectCover project={project} index={index} />
