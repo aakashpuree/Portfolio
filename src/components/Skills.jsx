@@ -58,7 +58,7 @@ export default function Skills({ github }) {
               className="text-link"
               href={`${site.github}?tab=repositories`}
               target="_blank"
-              rel="noreferrer"
+              rel="me noreferrer"
             >
               Explore repositories
               <ArrowUpRight size={16} aria-hidden="true" />

@@ -185,7 +185,7 @@ export default function OpenSource({ github }) {
             </div>
 
             <div className="os-repos-footer">
-              <a className="btn btn-ghost btn-sm" href={site.github} target="_blank" rel="noreferrer">
+              <a className="btn btn-ghost btn-sm" href={site.github} target="_blank" rel="me noreferrer">
                 Follow @{site.username}
                 <ArrowUpRight size={16} aria-hidden="true" />
               </a>

@@ -24,8 +24,8 @@ export default function Footer() {
               <span className="brand-name">aakashpuree</span>
             </a>
             <p>
-              Full-stack developer crafting thoughtful digital experiences
-              from Nepal.
+              Aakash Puri — full-stack developer and creative engineer from Nepal.
+              Also known online as aakashpuree.
             </p>
             <span className="footer-time">
               {site.location} · <LocalTime />
@@ -55,7 +55,7 @@ export default function Footer() {
                   key={social.id}
                   href={social.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="me noreferrer"
                   aria-label={social.label}
                 >
                   <BrandIcon name={social.id} size={17} />
