@@ -1,273 +1,150 @@
-# ✨ Aakash Puri — Creative Full Stack Developer Portfolio
+# Aakash Puri — Portfolio
 
-> A modern, immersive portfolio website showcasing visually stunning interactive experiences built with React, Vite, and advanced animations. Designed to captivate and inspire.
+Personal portfolio for **Aakash Puri** ([@aakashpuree](https://github.com/aakashpuree)), a full-stack developer from Nepal building fast, expressive products across the stack.
 
-
-**Live Demo:** [aakashpuree.vercel.app](https://aakashpuree.vercel.app)
-
----
-
-## 🎨 About This Portfolio
-
-This is more than just a portfolio—it's a **digital experience**. Built with a modern tech stack and artistic vision, it combines:
-
-- **Cinematic Design:** Dark theme with vibrant red (#D90429) accents against deep blue backgrounds (#0A1128)
-- **Smooth Interactions:** Lenis smooth scrolling, GSAP animations, and scroll-linked canvas sequences
-- **Responsive Excellence:** Pixel-perfect design from mobile to desktop
-- **Performance-First:** Optimized with Vite and production-grade React
-
-Every element is intentional. Every animation tells a story.
+**Live:** [aakashpuree.vercel.app](https://aakashpuree.vercel.app)
 
 ---
 
-## ✨ Key Features
+## Overview
 
-### 🎬 **Scroll-Driven Canvas Animation**
-- Dynamic frame sequencing that syncs with page scroll
-- 60-frame animation sequence for cinematic parallax effects
-- Smooth scaling and positioning transitions as you scroll
+A single-page, editorial-style portfolio built around a black-and-white design system with a `#e2401c` accent, Schibsted Grotesk typography, and a scroll-driven canvas sequence. Data that can be live, is live: GitHub profile stats, contribution heatmap, latest repositories and language mix are fetched from public APIs at runtime with cached fallbacks.
 
-### 🎯 **Interactive Navigation**
-- Fixed navbar with glass-morphism design
-- Smooth scroll anchors to each section
-- Mobile-responsive hamburger menu with slide-out animations
-- Hover effects with animated underlines
+### Highlights
 
-### 🌈 **Design Elements**
-- **Glass-Morphism UI**: Frosted glass panels with blur effects (20px backdrop filter)
-- **Dynamic Gradient Tinting**: Red-to-blue gradient overlay that transitions as you scroll
-- **Smooth Scrolling**: Lenis library with custom easing for buttery-smooth scroll experience
-- **Character Drop Animation**: Hero title letters animate in with staggered timing
+- **Editorial design system** — black, white and `#e2401c`, fluid `clamp()` typography, grain and surface treatments.
+- **Custom cursor** — accent arrow with motion rays and contextual labels on pointer-fine devices.
+- **Scroll experience** — Lenis smooth scrolling, GSAP intro, reveal-on-scroll sections, scroll progress bar and session-aware preloader.
+- **Canvas hero sequence** — 60-frame scroll-linked animation with DPR handling and reduced-motion support.
+- **Live GitHub data** — profile totals, contribution heatmap, top languages and recently updated repositories, cached in `sessionStorage` for 30 minutes with bundled fallbacks for offline/rate-limited cases.
+- **Working contact form** — Web3Forms submission with inline status states, honeypot spam guard and WhatsApp fallback.
+- **Accessible and resilient** — semantic landmarks, skip link, keyboard-friendly navigation, `prefers-reduced-motion` handling, and a no-JavaScript fallback in `index.html`.
 
-### 📱 **Sections Included**
-1. **Hero** - Animated introduction with character-by-character drop
-2. **About** - Personal narrative and creative philosophy
-3. **Skills/Toolkit** - Core competencies with icon badges
-4. **Projects** - Featured portfolio pieces with hover reveals
-5. **Resume/Experience** - Timeline of roles and achievements
-6. **Blog** - Curated articles on web development and design
-7. **Contact** - Web3Forms integration for direct messaging
+### Sections
 
-### 🎵 **Rich Media Integration**
-- Howler.js ready for audio experiences
-- Lucide React icons throughout
-- Optimized image loading with lazy rendering
-- High-resolution project cards with hover effects
+1. **Hero** — animated introduction with live GitHub stats.
+2. **About** — portrait, philosophy and quick facts.
+3. **Skills** — toolkit groups plus a live GitHub language footprint.
+4. **Work** — six selected projects with filtering, live repo metadata and live/demo links.
+5. **Open source** — GitHub totals, contribution heatmap and latest repositories.
+6. **Journey** — timeline of roles, milestones and a local-time card.
+7. **Contact** — social links, availability card and the Web3Forms contact form.
+8. **Footer** — navigation, socials, wordmark and back-to-top.
 
 ---
 
-## 🛠️ Technology Stack
+## Tech Stack
 
-### **Frontend Framework**
-- **React 19.2.4** – Modern UI components with hooks
-- **Vite 8** – Lightning-fast build tool and dev server
-
-### **Animation & Interactivity**
-- **GSAP 3.14.2** – Professional-grade animation library
-- **Lenis 1.0.42** – Smooth scroll experience with physics-based easing
-- **Howler 2.2.4** – Web audio API wrapper for sound effects
-
-### **Styling & UI**
-- **CSS3** – Custom properties, gradients, glass-morphism effects
-- **Outfit Font** – Modern, geometric typeface from Google Fonts
-- **Lucide React 1.7.0** – Beautiful SVG icon library
-
-### **Development Tools**
-- **ESLint 9.39.4** – Code quality and consistency
-- **React Hot Refresh** – Instant module replacement during development
-- **Vite React Plugin** – JSX support and optimization
-
-### **Deployment**
-- **Vercel** – Continuous deployment with instant preview environments
-- **Web3Forms** – Email backend for contact form (no server needed)
+| Layer | Choice |
+| --- | --- |
+| Framework | React 19 |
+| Build tool | Vite 8 |
+| Animation | GSAP, Lenis (`@studio-freight/lenis`) |
+| Icons | lucide-react, inline brand SVGs |
+| Styling | Hand-written CSS with custom properties |
+| Typeface | Schibsted Grotesk (Google Fonts) |
+| Contact backend | Web3Forms |
+| Deployment | Vercel |
 
 ---
 
-## 📊 Project Structure
+## Project Structure
 
 ```
 Portfolio/
 ├── public/
-│   ├── assets/
-│   │   ├── seq/                 # 60-frame canvas animation frames
-│   │   ├── habitta-img.png      # Project showcase images
-│   │   ├── date-finder.png
-│   │   └── letter-a.svg         # Favicon
-│   └── ...
+│   ├── assets/seq/            # 60 hero canvas frames
+│   ├── letter-a.svg           # Favicon / Apple touch icon
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
+│   ├── assets/                # Project cover images
 │   ├── components/
-│   │   ├── CanvasSequence.jsx   # Scroll-linked frame animation
-│   │   └── OverlayUI.jsx        # Main UI with all sections
-│   ├── App.jsx                  # Lenis smooth scroll setup
-│   ├── main.jsx                 # React entry point
-│   ├── index.css                # Global styles + design system
-│   └── assets/                  # Project images
-├── index.html                   # SEO-optimized HTML shell
-├── vite.config.js               # Vite configuration
-├── package.json                 # Dependencies and scripts
-└── README.md                    # This file
+│   │   ├── Navbar.jsx         # Fixed nav + mobile menu
+│   │   ├── Hero.jsx           # Hero + live stats
+│   │   ├── About.jsx
+│   │   ├── Skills.jsx         # Toolkit + language footprint
+│   │   ├── Projects.jsx       # Filterable project grid
+│   │   ├── OpenSource.jsx     # GitHub heatmap + latest repos
+│   │   ├── Journey.jsx
+│   │   ├── Contact.jsx        # Web3Forms contact form
+│   │   ├── Footer.jsx
+│   │   ├── CanvasSequence.jsx # Scroll-linked canvas
+│   │   ├── CustomCursor.jsx
+│   │   ├── Preloader.jsx
+│   │   └── …                  # Reveal, CountUp, BrandIcons, etc.
+│   ├── data/site.js           # Site config, socials, projects, fallbacks
+│   ├── hooks/useGitHub.js     # GitHub + contributions fetching/caching
+│   ├── lib/                   # Scroll and formatting helpers
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css              # Design system and all styles
+├── .env.example
+├── index.html                 # SEO, OpenGraph, JSON-LD
+└── vite.config.js
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
-- **Node.js** 18+ (uses ES modules)
-- **npm** or **pnpm**
+Requirements: **Node.js 18+** and **npm**.
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aakashpuree/Portfolio.git
-   cd Portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-   The app will open at `http://localhost:5173` with hot module reloading enabled.
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-   Optimized assets are output to `dist/`
-
-5. **Preview production build locally**
-   ```bash
-   npm run preview
-   ```
-
----
-
-## 🎨 Design & Style Guide
-
-### **Color Palette**
-```css
---bg-blue: #0A1128          /* Deep navy background */
---bg-red: #D90429           /* Vibrant red accent */
---text-white: #fefefe       /* Off-white for text */
---text-dim: #a0a0ab         /* Muted gray for secondary text */
---glass-bg: rgba(10, 17, 40, 0.4)
---glass-border: rgba(255, 255, 255, 0.08)
+```bash
+npm install
+npm run dev        # start the dev server (http://localhost:5173)
+npm run build      # production build → dist/
+npm run preview    # preview the production build
+npm run lint       # ESLint
 ```
 
-### **Typography**
-- **Heading Font**: Outfit (weights: 800, 900)
-- **Body Font**: Outfit (weights: 300, 400, 600)
-- **Sizes**: Responsive scaling with `clamp()` for fluid typography
+### Environment
 
-### **Effects**
-- **Blur**: 20px backdrop-filter for glass panels
-- **Shadows**: Subtle text-shadows and drop-shadows
-- **Blending**: `mix-blend-mode: overlay` for cinematic tinting
-- **Transitions**: 0.2s–0.7s cubic-bezier easing
+The contact form works out of the box with the bundled Web3Forms access key. To use your own, copy `.env.example` to `.env` and set:
 
-### **Animation Timings**
-- Hero intro: 0.6s with `back.out(1.5)` easing
-- Section reveals: 1.2s with `power3.out` easing
-- Smooth scroll: 1.2s with custom physics easing (Lenis)
-
----
-
-## 🔧 How It Works
-
-### **Canvas Sequence Flow**
-1. Load 60 JPEG frames from `/public/assets/seq/`
-2. Map scroll progress (0–1) to frame index (0–59)
-3. Draw current frame to canvas using `context.drawImage()`
-4. Apply parallax offset (`y: progress * 50px`)
-5. Render 60fps with RAF (requestAnimationFrame)
-
-### **Smooth Scroll Integration**
-```javascript
-// App.jsx initializes Lenis
-const lenis = new Lenis({ duration: 1.2, easing: customEasing });
-// Updates CSS custom property for gradient tinting
-lenis.on('scroll', ({ progress }) => {
-  document.documentElement.style.setProperty('--scroll-progress', progress);
-});
+```bash
+VITE_WEB3FORMS_KEY=your-web3forms-access-key
 ```
 
-### **Section Animations**
-- Initial state: offset (±100px) + opacity 0
-- Trigger on scroll: when section enters viewport (85% threshold)
-- Animate: x, y, opacity with staggered timings
-- Alternating sides: left sections enter from left, right from right
+### Live data
+
+- Profile, repositories and star totals: `https://api.github.com/users/aakashpuree`
+- Contributions: `https://github-contributions-api.jogruber.de/v4/aakashpuree`
+- Responses are cached in `sessionStorage` for 30 minutes; bundled fallbacks in `src/data/site.js` cover failures.
+- To point the site at another account, update `USERNAME` in `src/hooks/useGitHub.js` and the `githubFallback` data.
 
 ---
 
-## 📞 Contact & Connect
+## Customization
 
-**Direct Contact Form**: Available on the portfolio's Contact section  
-**Email**: Direct via Web3Forms integration  
-**Social Media**:
-- 🐙 [GitHub](https://github.com/aakashpuree)
-- 💼 [LinkedIn](https://np.linkedin.com/in/aakashpuree)
-- 📸 [Instagram](https://www.instagram.com/aakashpuree/)
-- 💬 [WhatsApp](https://wa.me/9748848620)
+- **Content** — names, socials, projects, skills and timeline live in `src/data/site.js`.
+- **Theme** — colors, spacing, radii and typography tokens are CSS custom properties at the top of `src/index.css`.
+- **Covers** — projects without a photo generate a consistent typographic cover; drop images into `src/assets/` and reference them in `site.js` to override.
+- **Hero canvas** — replace the frames in `public/assets/seq/` (keep the `ezgif-frame-###.jpg` naming) and update the frame count in `CanvasSequence.jsx` if needed.
+- **SEO** — update the canonical URL, OpenGraph tags and JSON-LD in `index.html`, plus `robots.txt`/`sitemap.xml`, if the domain changes.
 
 ---
 
-## 📈 Performance Optimizations
+## Deployment
 
-✅ **Vite** for fast cold starts and HMR  
-✅ **React 19** with lazy component loading  
-✅ **Canvas** rendering for efficient animations  
-✅ **Image optimization** with responsive loading  
-✅ **Minification & tree-shaking** in production  
-✅ **98+ Lighthouse score** on production build  
+The site builds to static files and deploys as-is on Vercel (or any static host). For Vercel:
 
----
-
-## 🤝 Contributing
-
-This is a personal portfolio, but if you'd like to adapt it for your own use:
-
-1. Fork the repository
-2. Customize colors, text, and projects in `OverlayUI.jsx` and `index.css`
-3. Replace canvas frames in `/public/assets/seq/`
-4. Update social links and contact form
-5. Deploy to Vercel with one click
+1. Import the repository.
+2. Framework preset: **Vite**; build command `npm run build`; output directory `dist`.
+3. Optionally add `VITE_WEB3FORMS_KEY` under project environment variables.
 
 ---
 
-## 📝 License
+## Contact
 
-Open source for educational purposes. Feel free to learn from and adapt the code.  
-**Please credit the original if you use significant portions.**
-
----
-
-## 🎯 Future Enhancements
-
-- [ ] Blog platform integration
-- [ ] Project filtering by technology
-- [ ] Dark/Light theme toggle
-- [ ] Internationalization (i18n)
-- [ ] Advanced analytics
-- [ ] More interactive 3D elements
+- GitHub: [github.com/aakashpuree](https://github.com/aakashpuree)
+- LinkedIn: [linkedin.com/in/aakashpuree](https://www.linkedin.com/in/aakashpuree/)
+- Instagram: [instagram.com/aakashpuree](https://www.instagram.com/aakashpuree/)
+- WhatsApp: [wa.me/9779748848620](https://wa.me/9779748848620)
+- Or use the contact form on the site.
 
 ---
 
-## 🙏 Acknowledgments
+## License
 
-Built with passion during late-night coding sessions. Thanks to:
-- **GSAP** team for incredible animation tools
-- **Lenis** for smooth scroll magic
-- **Vercel** for instant deployment
-- **React & Vite** teams for modern tooling
-
----
-
-**Made with ❤️ by [Aakash Puri](https://github.com/aakashpuree)**
-
-*Building immersive digital experiences, one pixel at a time.*
+Open source for learning and reference. Please credit the original if you reuse significant portions.

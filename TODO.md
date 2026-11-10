@@ -1,12 +1,14 @@
 # TODO
 
-- [ ] Update `index.html` with SEO meta tags and Google verification:
-  - [ ] Add `google-site-verification` meta tag
-  - [ ] Add professional title/description/keywords
-  - [ ] Add canonical + OpenGraph + Twitter card tags
-  - [ ] Add JSON-LD structured data for Person (Aakash Puri / aakashpuree)
-  - [ ] Add og:image/twitter:image (use existing public asset)
-- [ ] Run `npm run build` and confirm no errors.
-- [ ] Validate meta tags in browser devtools (view-source).
+## Content
 
-- make it professional and feels nice as the developer 
+- [ ] Confirm the LinkedIn profile URL in `src/data/site.js` and `index.html`.
+- [ ] Add a résumé PDF and link it once available.
+- [ ] Replace the generated covers for Himali Weather, Swastha Sewa, Com.Eng Notes and Banknote Extractor with real screenshots.
+- [ ] Add a public contact email if one should be listed alongside the form and WhatsApp.
+
+## QA
+
+- [ ] Submit the contact form once on production to verify Web3Forms delivery.
+- [ ] Run a Lighthouse pass against the deployed URL.
+- [ ] Validate `robots.txt` and `sitemap.xml`, then request indexing in Google Search Console.

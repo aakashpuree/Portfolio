@@ -1,21 +1,62 @@
-import React, { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Lenis from '@studio-freight/lenis';
 import CanvasSequence from './components/CanvasSequence';
-import OverlayUI from './components/OverlayUI';
+import CustomCursor from './components/CustomCursor';
+import Preloader from './components/Preloader';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import OpenSource from './components/OpenSource';
+import Journey from './components/Journey';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import useGitHub from './hooks/useGitHub';
+import { registerLenis, setScrollLock } from './lib/scroll';
 
 function App() {
+  const github = useGitHub();
+  const [isLoading, setIsLoading] = useState(() => {
+    try {
+      return !window.sessionStorage.getItem('ap:visited');
+    } catch {
+      return true;
+    }
+  });
 
-  // Initialize Lenis smooth scroll
+  const handleLoaded = useCallback(() => {
+    setIsLoading(false);
+    try {
+      window.sessionStorage.setItem('ap:visited', '1');
+    } catch {
+      // Session storage is optional; the site works without it.
+    }
+  }, []);
+
   useEffect(() => {
-    // Force scroll to top on refresh
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reducedMotion) {
+      const updateProgress = () => {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        document.documentElement.style.setProperty('--scroll-progress', String(progress));
+      };
+
+      updateProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      return () => window.removeEventListener('scroll', updateProgress);
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      easing: (time) => Math.min(1, 1.001 - (2 ** (-10 * time))),
       direction: 'vertical',
       gestureDirection: 'vertical',
       smooth: true,
@@ -24,32 +65,63 @@ function App() {
       touchMultiplier: 2,
     });
 
+    registerLenis(lenis);
     lenis.scrollTo(0, { immediate: true });
-
     lenis.start();
 
-    // Scroll updates CSS variable for gradient transition
     lenis.on('scroll', ({ progress }) => {
-      document.documentElement.style.setProperty('--scroll-progress', progress);
+      document.documentElement.style.setProperty('--scroll-progress', String(progress));
     });
 
-    function raf(time) {
+    let frame;
+    const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+      frame = requestAnimationFrame(raf);
+    };
+    frame = requestAnimationFrame(raf);
 
-    requestAnimationFrame(raf);
-    
     return () => {
+      cancelAnimationFrame(frame);
+      registerLenis(null);
       lenis.destroy();
-    }
+    };
   }, []);
 
+  useEffect(() => {
+    setScrollLock(isLoading);
+    return () => setScrollLock(false);
+  }, [isLoading]);
+
   return (
-    <div className="app-container">
-      <CanvasSequence />
-      <OverlayUI />
-    </div>
+    <>
+      <a className="skip-link" href="#main">Skip to content</a>
+
+      <div className="app-shell">
+        <CanvasSequence />
+        <div className="scene-overlay" aria-hidden="true" />
+        <div className="grain" aria-hidden="true" />
+        <CustomCursor />
+
+        {isLoading ? <Preloader onComplete={handleLoaded} /> : null}
+
+        <Navbar />
+
+        <main id="main">
+          <Hero github={github} introReady={!isLoading} />
+
+          <div className="page-body">
+            <About github={github} />
+            <Skills github={github} />
+            <Projects github={github} />
+            <OpenSource github={github} />
+            <Journey />
+            <Contact />
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }
 
